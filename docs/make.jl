@@ -4,7 +4,7 @@ using AcquaCalda
 makedocs(
     sitename = "Acqua Calda",
     format = Documenter.HTML(
-        canonical = "https://acquacalda.github.io/AcquaCalda.jl/",
+        canonical = "https://sardiniangale.github.io/AcquaCalda.jl/",
     ),
     pages = [
         "Home" => "index.md",
@@ -12,5 +12,5 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/AcquaCalda/AcquaCalda.jl.git",
+    repo = "github.com/Sardiniangale/AcquaCalda.jl.git",
 )

@@ -1,9 +1,10 @@
 using Documenter
+using AcquaCalda
 
 makedocs(
     sitename = "Acqua Calda",
     format = Documenter.HTML(
-        canonical = "https://github.com/AcquaCalda/AcquaCalda.jl/",
+        canonical = "https://acquacalda.github.io/AcquaCalda.jl/",
     ),
     pages = [
         "Home" => "index.md",

@@ -8,7 +8,7 @@ makedocs(
     ),
     pages = [
         "Home" => "index.md",
-    ],
+    ]
 )
 
 deploydocs(

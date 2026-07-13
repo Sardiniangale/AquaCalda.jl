@@ -12,5 +12,5 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/Sardiniangale/AcquaCalda.jl.git",
+    repo = "github.com/Sardiniangale/AquaCalda.jl.git",
 )

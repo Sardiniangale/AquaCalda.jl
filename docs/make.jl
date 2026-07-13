@@ -7,7 +7,7 @@ makedocs(
         canonical = "https://sardiniangale.github.io/AcquaCalda.jl/",
     ),
     pages = [
-        "Home" => "index.md",
+        "Home" => "index.md"
     ]
 )
 

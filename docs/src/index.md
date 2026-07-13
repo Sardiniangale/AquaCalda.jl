@@ -1,10 +1,10 @@
-# Acqua Calda
+# AcquaCalda
 
 A thermally coupled Discrete Element Method library for granular materials.
 
 ## Overview
 
-Acqua Calda simulates heat transfer in granular materials using the Discrete
+AcquaCalda simulates heat transfer in granular materials using the Discrete
 Element Method (DEM). It models mechanical contacts, particle-particle and
 particle-wall heat conduction, frictional heating, and energy conservation.
 
@@ -13,7 +13,7 @@ models, thermal solvers, and I/O backends.
 
 ## Status
 
-Acqua Calda is in early development. APIs are unstable and features are
+AcquaCalda is in early development. APIs are unstable and features are
 incomplete. See the [Changelog](https://github.com/Sardiniangale/AquaCalda.jl/blob/main/CHANGELOG.md)
 for version history.
 
@@ -43,4 +43,4 @@ using AcquaCalda
 
 ## License
 
-Acqua Calda is released under the [MIT License](https://github.com/Sardiniangale/AquaCalda.jl/blob/main/LICENSE).
+AcquaCalda is released under the [MIT License](https://github.com/Sardiniangale/AquaCalda.jl/blob/main/LICENSE).

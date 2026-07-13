@@ -1,6 +1,6 @@
 # Installation
 
-Acqua Calda requires Julia 1.10 or later.
+AcquaCalda requires Julia 1.10 or later.
 
 ## Installing Julia
 
@@ -11,7 +11,7 @@ or use [juliaup](https://github.com/JuliaLang/juliaup):
 curl -fsSL https://install.julialang.org | sh
 ```
 
-## Installing Acqua Calda
+## Installing AcquaCalda
 
 ```julia
 import Pkg

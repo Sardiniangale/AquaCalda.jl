@@ -7,7 +7,13 @@ makedocs(
         canonical = "https://sardiniangale.github.io/AcquaCalda.jl/",
     ),
     pages = [
-        "Home" => "index.md"
+        "Home" => "index.md",
+        "Installation" => "installation.md",
+        "Quick Start" => "quickstart.md",
+        "Physics" => "physics.md",
+        "API Reference" => "api.md",
+        "Extensions" => "extensions.md",
+        "Citation" => "citation.md"
     ]
 )
 

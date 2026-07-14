@@ -8,7 +8,7 @@ makedocs(
     ),
     pages = [
         "Home" => "index.md",
-        "INTERNAL_DOC" => "internal_docs.md"
+        "INTERNAL_DOC" => "internal_docs.md",
         "Installation" => "installation.md",
         "Quick Start" => "quickstart.md",
         "Physics" => "physics.md",

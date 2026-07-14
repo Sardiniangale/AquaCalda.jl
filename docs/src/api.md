@@ -1,3 +1,6 @@
 # API Reference
 
-Api page here :0
+```@autodocs
+Modules = [AcquaCalda]
+Order = [:type, :function]
+```

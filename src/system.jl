@@ -25,7 +25,7 @@ function compute_forces!(system)
         pj_data = pj
 
         # overlap rate
-        v_rel = pi.velocity - (pj === nothing ? SA[0.0,0.0,0.0] : pj.velocity)
+        v_rel = pi.velocity - (pj === nothing ? SA[0.0, 0.0, 0.0] : pj.velocity)
         overlap_dot = -dot(v_rel, contact.normal)
 
         # normal force
@@ -71,8 +71,8 @@ end
 
 run the simulation from system.time to t_end.
 """
-function run!(system; t_end::Float64=1.0,
-              callbacks::Vector{Callback}=Callback[])
+function run!(system; t_end::Float64 = 1.0,
+        callbacks::Vector{Callback} = Callback[])
     dt = system.dt
     n_steps = Int(ceil((t_end - system.time) / dt))
 

@@ -23,10 +23,10 @@ function heat_flux(::FourierContact, p_i, p_j, p_j_data, contact, dt::Float64)
         p_i.conductivity
     else
         2 * p_i.conductivity * p_j.conductivity /
-            (p_i.conductivity + p_j.conductivity)
+        (p_i.conductivity + p_j.conductivity)
     end
 
     delta_t = p_j_data === nothing ? 0.0 : p_i.temperature - p_j.temperature
     return k_eff * contact_area * delta_t * dt /
-        (p_i.radius + (p_j_data === nothing ? 0.0 : p_j.radius)) * 2
+           (p_i.radius + (p_j_data === nothing ? 0.0 : p_j.radius)) * 2
 end

@@ -9,7 +9,7 @@ return the scalar normal force magnitude (positive = repulsive).
 `p_j_data` is `nothing` for particle-wall contacts.
 """
 function normal_force(model::AbstractContactModel, p_i, p_j, p_j_data,
-                      overlap::Float64, overlap_dot::Float64)
+        overlap::Float64, overlap_dot::Float64)
     error("normal_force not implemented for $(typeof(model))")
 end
 
@@ -20,6 +20,6 @@ return the tangential force vector at the contact.
 defaults to zero (frictionless).
 """
 function tangential_force(model::AbstractContactModel, p_i, p_j, p_j_data,
-                          contact, dt::Float64)
+        contact, dt::Float64)
     return SA[0.0, 0.0, 0.0]
 end

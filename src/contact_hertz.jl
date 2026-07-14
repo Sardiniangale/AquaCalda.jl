@@ -1,15 +1,17 @@
 # hertz-mindlin contact model , nonlinear elastic + damping
 
-struct HertzMindlin{T<:Float64} <: AbstractContactModel
+struct HertzMindlin{T <: Float64} <: AbstractContactModel
     youngs_modulus::T
     poisson_ratio::T
     restitution::T
     mu::T
 end
 
-HertzMindlin(; youngs_modulus=1e9, poisson_ratio=0.3, restitution=0.9, mu=0.3) =
+function HertzMindlin(;
+        youngs_modulus = 1e9, poisson_ratio = 0.3, restitution = 0.9, mu = 0.3)
     HertzMindlin(Float64(youngs_modulus), Float64(poisson_ratio),
-                 Float64(restitution), Float64(mu))
+        Float64(restitution), Float64(mu))
+end
 
 # effective material properties for a particle pair
 function _effective_props(model::HertzMindlin, p_i, p_j)
@@ -25,7 +27,7 @@ function _effective_props_wall(model::HertzMindlin, p_i)
 end
 
 function normal_force(model::HertzMindlin, p_i, p_j, p_j_data,
-                      overlap::Float64, overlap_dot::Float64)
+        overlap::Float64, overlap_dot::Float64)
     e_star, r_star = if p_j_data === nothing
         _effective_props_wall(model, p_i)
     else
@@ -33,8 +35,8 @@ function normal_force(model::HertzMindlin, p_i, p_j, p_j_data,
     end
 
     # hertz elastic force
-    kn = (4/3) * e_star * sqrt(r_star)
-    f_el = kn * overlap^(3/2)
+    kn = (4 / 3) * e_star * sqrt(r_star)
+    f_el = kn * overlap^(3 / 2)
 
     # damping from restitution coefficient
     m_star = if p_j_data === nothing
@@ -44,7 +46,7 @@ function normal_force(model::HertzMindlin, p_i, p_j, p_j_data,
     end
     if model.restitution < 1.0
         beta = -log(model.restitution) / sqrt(pi^2 + log(model.restitution)^2)
-        gamma = 2 * beta * sqrt(m_star * kn) * overlap^(1/4)
+        gamma = 2 * beta * sqrt(m_star * kn) * overlap^(1 / 4)
     else
         gamma = 0.0
     end
@@ -53,7 +55,7 @@ function normal_force(model::HertzMindlin, p_i, p_j, p_j_data,
 end
 
 function tangential_force(model::HertzMindlin, p_i, p_j, p_j_data,
-                          contact, dt::Float64)
+        contact, dt::Float64)
     e_star, r_star = if p_j_data === nothing
         _effective_props_wall(model, p_i)
     else
@@ -64,7 +66,7 @@ function tangential_force(model::HertzMindlin, p_i, p_j, p_j_data,
     kt = 8 * g_star * sqrt(r_star * contact.overlap)
 
     delta_t = contact.tangential_displacement
-    v_rel = p_i.velocity - (p_j_data === nothing ? SA[0.0,0.0,0.0] : p_j.velocity)
+    v_rel = p_i.velocity - (p_j_data === nothing ? SA[0.0, 0.0, 0.0] : p_j.velocity)
     v_t = v_rel - dot(v_rel, contact.normal) * contact.normal
     delta_t += v_t * dt
 

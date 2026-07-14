@@ -1,9 +1,9 @@
 module AcquaCalda
 
+using LinearAlgebra
 using StaticArrays
 
 #extremely basic implimentation
-
 
 # abstract interfaces
 include("abstract_contact.jl")

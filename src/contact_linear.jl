@@ -1,27 +1,28 @@
 # linear spring-dashpot contact model
 
-struct LinearSpringDashpot{T<:Float64} <: AbstractContactModel
+struct LinearSpringDashpot{T <: Float64} <: AbstractContactModel
     kn::T
     kt::T
     gamma_n::T
     mu::T
 end
 
-LinearSpringDashpot(; kn=1e5, kt=1e4, gamma_n=1e3, mu=0.3) =
+function LinearSpringDashpot(; kn = 1e5, kt = 1e4, gamma_n = 1e3, mu = 0.3)
     LinearSpringDashpot(Float64(kn), Float64(kt), Float64(gamma_n), Float64(mu))
+end
 
 function normal_force(model::LinearSpringDashpot, p_i, p_j, p_j_data,
-                      overlap::Float64, overlap_dot::Float64)
+        overlap::Float64, overlap_dot::Float64)
     return model.kn * overlap + model.gamma_n * overlap_dot
 end
 
 function tangential_force(model::LinearSpringDashpot, p_i, p_j, p_j_data,
-                          contact, dt::Float64)
+        contact, dt::Float64)
     kt = model.kt
     delta_t = contact.tangential_displacement
 
     # relative tangential velocity at contact
-    v_rel = p_i.velocity - (p_j_data === nothing ? SA[0.0,0.0,0.0] : p_j.velocity)
+    v_rel = p_i.velocity - (p_j_data === nothing ? SA[0.0, 0.0, 0.0] : p_j.velocity)
     v_t = v_rel - dot(v_rel, contact.normal) * contact.normal
     delta_t += v_t * dt
 

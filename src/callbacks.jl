@@ -12,7 +12,7 @@ end
 create a callback that fires every `n_steps` timesteps.
 """
 function every(interval::Int)
-    return function(f::Function)
+    return function (f::Function)
         return Callback(f, interval, 0)
     end
 end

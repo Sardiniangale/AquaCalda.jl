@@ -30,7 +30,7 @@ end
 
 function finish_step!(system, dt::Float64)
     particles = system.particles
-    @inbounds for i in 1:n
+    @inbounds for i in eachindex(particles)
         p = particles[i]
         a = p.force / p.mass
         p.velocity += 0.5 * a * dt

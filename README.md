@@ -15,14 +15,14 @@ APIs are unstable, core features are missing. THIS IS NOWHERE NEAR READY FOR USE
 ## What will AcquaCalda become?
 
 A thermally coupled Discrete Element Method library for granular materials.
-Current plan to implement by release (in a year or two)
+Current plan to implement by release (in a couple of years)
 
 - Mechanical contacts (Hertz‑Mindlin, linear spring‑dashpot and the sort)
 - Particle‑particle and particle‑wall heat conduction
 - Frictional heating and energy conservation
 - Interface for custom contact models, thermal solvers, and I/O
 
-The goal is a well‑tested, validated tool.
+The goal is a well‑tested, validated tool which is highly modular system that's relatively easy to modify for specific use cases.
 
 ---
 
